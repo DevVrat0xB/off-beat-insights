@@ -1,0 +1,59 @@
+.desktop_grid_wrapper {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-gap: 0px;
+  margin: 0px;
+  background-color: black;
+  align-items: center;
+}
+
+.desktop_nav {
+  grid-column: 1/2;
+  padding: 0;
+  height: 100vh;
+  color: white;
+  vertical-align: middle;
+}
+
+.desktop_menu {
+  margin: 0;
+  margin-top: 30vh;
+  padding: 0;
+}
+
+.desktop_menu li {
+  padding-top: 12%;
+  padding-bottom: 12%;
+  text-align: center;
+  list-style: none;
+  font-family: "Xanh Mono";
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.desktop_frame {
+  grid-column: 2/16;
+  height: 90%;
+
+  /* for nested grid */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0px;
+}
+
+.desktop_site_intro_text {
+  grid-column: 4/7;
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+  height: auto;
+} 
+
+.site_name {
+  font-family: "fjalla one";
+  font-size: 4em;
+  color: white;
+}
+
+.site_tag {
+  color: white;
+}

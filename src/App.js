@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
+// project component imports.
+import DesktopLayout from './desktop-layout.js';
+
 function App() {
   // Marking the device as whether it is a mobile or desktop based on the width.
   // The structure is SAME but ORDER of the layout is different for Mobile and Desktop devices.
@@ -15,17 +18,7 @@ function App() {
     window.addEventListener("resize", detectDevice);
   }, [isMobileDevice]);
 
-  // render either layout order for mobile or desktop.
-  if (isMobileDevice) {
-    return (
-      <h2>Mobile Device</h2>
-    );
-  }
-  else {
-    return (
-      <h2>Desktop Device</h2>
-    );
-  }
+  return ((isMobileDevice) ? <h2>Mobile Device</h2> : <DesktopLayout />);
 }
 
 export default App;
