@@ -1,78 +1,74 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import Checkbox from "@material-ui/core/Checkbox";
-import TextField from "@material-ui/core/TextField";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import React, { useState } from "react";
 
+// Project Components/Styles.
+import TextInputField from "./utils/TextInputField";
+import ListInputField from "./utils/ListInputField";
 import CSS from "./NewDataForm.module.css";
 
-const NewDataFormComponent = () => {
+// MaterialUI Components.
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+
+// FORM FOR ADDING A NEW NOTE.
+const NewDataFormComponent = (props) => {
+  // states of the input fields.
+  const [topic, setTopic] = useState("");
+  const [objective, setObjective] = useState("");
+  const [section, setSection] = useState("");
+  const [packageName, setPackageName] = useState("");
+  const [pointers, setPointers] = useState([]);
+
   return (
-    <div className={CSS.form}>
-      {/** Topic label and its input type="text" field */}
-      <TextField label="Topic" variant="standard" className={CSS.wide} />
+    <React.Fragment>
+      <h2>Notes for {topic}</h2>
+      <div className={CSS.form}>
+        <form>
+          {/** Topic label and its input type="text" field */}
+          <TextInputField
+            state={{ value: topic, setValue: setTopic }}
+            fieldname="Topic"
+            css={CSS.wide}
+          />
 
-      {/** Objective label and its input type="text" field */}
-      <TextField className={CSS.wide} label="Objective" variant="standard" />
+          {/** Objective label and its input type="text" field */}
+          <TextInputField
+            state={{ value: objective, setValue: setObjective }}
+            fieldname="Objective"
+            css={CSS.wide}
+          />
 
-      {/** Section label and its input type="text" field */}
-      <TextField className={CSS.wide} label="Section" variant="standard" />
+          {/** Section label and its input type="text" field */}
+          <TextInputField
+            state={{ value: section, setValue: setSection }}
+            fieldname="Section"
+            css={CSS.wide}
+          />
 
-      {/** Package label and its input type="text" field */}
-      <TextField className={CSS.wide} label="Package" variant="standard" />
+          {/** Package label and its input type="text" field */}
+          <TextInputField
+            state={{ value: packageName, setValue: setPackageName }}
+            fieldname="PackageName"
+            css={CSS.wide}
+          />
 
-      {/** Privileges label and its input type="text" field */}
-      <p className={CSS.topMarginOnly}>
-        <FormLabel>Privileges required for operations</FormLabel>
-      </p>
-      <p className={CSS.noTopMargin}>
-        <FormControlLabel
-          label="Creation"
-          control={
-            <Checkbox type="checkbox" name="privileges" value="Creation" />
-          }
-        ></FormControlLabel>
+          {/** Pointers label and its input field */}
+          <ListInputField
+            state={{ value: pointers, setValue: setPointers }}
+            fieldname="Pointers"
+            css={CSS.wide}
+          />
 
-        <FormControlLabel
-          label="Reading"
-          control={
-            <Checkbox type="checkbox" name="privileges" value="Reading" />
-          }
-        ></FormControlLabel>
-
-        <FormControlLabel
-          label="Modification"
-          control={
-            <Checkbox type="checkbox" name="privileges" value="Modification" />
-          }
-        ></FormControlLabel>
-
-        <FormControlLabel
-          label="Deletion"
-          control={
-            <Checkbox type="checkbox" name="privileges" value="Deletion" />
-          }
-        ></FormControlLabel>
-      </p>
-
-      {/** Pointers label and its input type="text" field */}
-      <label>Pointers</label>
-      <textarea name="pointers" rows="3"></textarea>
-
-      {/** Operations label and its input type="text" field */}
-      <TextField className={CSS.wide} label="Operation" variant="standard" />
-
-      {/** Section label and its input type="text" field */}
-      <TextField className={CSS.wide} label="Operation" variant="standard" />
-
-      <Button color="primary" type="submit">
-        Add
-      </Button>
-      <Button color="primary" type="reset">
-        Reset
-      </Button>
-    </div>
+          <p>
+            <Button color="primary" type="submit">
+              Submit Topic
+            </Button>
+            <Button color="primary" type="reset">
+              Reset
+            </Button>
+          </p>
+        </form>
+      </div>
+    </React.Fragment>
   );
 };
 
