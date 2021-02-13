@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-import CSS from "./App.module.css";
+import CSS from "./App.css";
 import NewDataForm from "./NewDataForm";
 
 const App = () => {
   return (
-    <div className={CSS.layout}>
-      <NewDataForm />
-    </div>
+    <React.Fragment>
+      <div className={CSS.layout}>
+        <NewDataForm />
+      </div>
+    </React.Fragment>
   );
 };
 
