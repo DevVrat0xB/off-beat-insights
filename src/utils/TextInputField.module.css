@@ -1,0 +1,14 @@
+.default {
+  color: brown;
+  font-weight: bolder;
+}
+
+.invalid_field {
+  border-color: crimson;
+  color: pink;
+}
+
+.valid_field {
+  border-color: green;
+  color: pink;
+}
