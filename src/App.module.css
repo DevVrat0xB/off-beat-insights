@@ -1,0 +1,17 @@
+/* Global styling */
+body {
+  margin: 0;
+}
+
+/* Styling of elements inside the header */
+.header {
+  background-color: rgb(40, 40, 40);
+}
+
+.menu_icon {
+  color: white;
+}
+
+.heading {
+  font-family: "Akaya Telivigala";
+}

@@ -1,6 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import WebFont from "webfontloader";
+
+WebFont.load({
+  google: {
+    families: ["Akaya Telivigala"],
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
