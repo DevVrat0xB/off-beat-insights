@@ -1,0 +1,21 @@
+<div>
+  <div class="flex justify-center">
+    <h5 class="text-gray-500 text-base font-bold p-3 uppercase">Chapters</h5>
+  </div>
+  <div class="flex justify-center">
+    <ul class="text-gray-500">
+      <li *ngFor="let chapter of chapters">{{ chapter }}</li>
+    </ul>
+  </div>
+  <div class="py-4 px-3">
+    <h6 class="flex justify-end uppercase text-xs font-bold">Author</h6>
+    <p class="flex justify-end">{{ author }}</p>
+
+    <div class="my-3">
+      <h6 class="flex justify-end text-xs text-gray-600 font-bold">Posted</h6>
+      <p class="flex justify-end text-xs font-light">{{ dateCreated }}</p>
+      <h6 class="flex justify-end text-xs text-gray-600 font-bold">Updated</h6>
+      <p class="flex justify-end text-xs font-light">{{ dateModified }}</p>
+    </div>
+  </div>
+</div>
