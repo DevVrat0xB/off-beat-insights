@@ -1,0 +1,14 @@
+.drawer {
+  z-index: 0;
+  overflow: auto;
+  background-color: transparent;
+}
+
+.drawerContainer {
+  overflow: auto;
+}
+
+.itemIcon {
+  text-align: center;
+  padding: 0;
+}

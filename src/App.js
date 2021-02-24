@@ -1,65 +1,41 @@
 import React, { useState } from "react";
-import css from "./App.module.css";
+import "./App.module.css";
 
 // Project components.
+import Header from "./Header";
 import Navigation from "./Navigation";
+import { MenuToggleContext } from "./NavigationContext";
 
 // material-ui components.
 import Grid from "@material-ui/core/Grid";
-import AppBar from "@material-ui/core/AppBar";
-import ToolBar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/HomeOutlined";
+import ArticlesIcon from "@material-ui/icons/AppsOutlined";
+import AboutIcon from "@material-ui/icons/InfoOutlined";
 
 const App = () => {
-  const [navVisibility, setNavVisibility] = useState(false);
-
-  // function which closes/opens the navigation menu.
-  function toggleMenu() {
-    setNavVisibility(!navVisibility);
-  }
+  const [menuVisibility, setMenuVisibility] = useState(false);
+  const [navOptions, setNavOptions] = useState([
+    { name: "Home", icon: <HomeIcon /> },
+    { name: "Articles", icon: <ArticlesIcon /> },
+    { name: "About", icon: <AboutIcon /> },
+  ]);
 
   return (
     <React.Fragment>
-      {/* Main container */}
-      <Grid container spacing={1}>
-        {/* Header */}
-        <Grid item xs={12} md={12} lg={12}>
-          <AppBar position="static">
-            <ToolBar className={css.header}>
-              {/* Menu Button (Icon) */}
-              <IconButton edge="start" size="medium" onClick={toggleMenu}>
-                <MenuIcon className={css.menu_icon} />
-              </IconButton>
-
-              {/* Swipeable Navigation (independent of where it is defined) */}
-              <Navigation
-                options={["Home", "About", "Articles"]}
-                visibility={{ navVisibility, setNavVisibility }}
-              />
-              {/* Heading or site banner */}
-              <Typography variant="h4">
-                <span className={css.heading}>Offbeats Insights</span>
-              </Typography>
-            </ToolBar>
-          </AppBar>
-        </Grid>
-
-        {/* Left Section */}
-        <Grid item xs={2} md={1}>
-          Left
-        </Grid>
-
-        {/* Main Section */}
-        <Grid item xs={12} md={12} lg={7}>
-          Main
-        </Grid>
-
-        {/* Right Section */}
-        <Grid item xs={12} md={12} lg={3}>
-          Right
-        </Grid>
+      <Grid container spacing={0}>
+        <MenuToggleContext.Provider
+          value={{
+            menuOpened: menuVisibility,
+            toggleMenuTo: setMenuVisibility,
+          }}
+        >
+          <Grid item xs={12}>
+            <Header />
+          </Grid>
+          <Grid item md={2}>
+            <Navigation options={navOptions} />
+          </Grid>
+        </MenuToggleContext.Provider>
       </Grid>
     </React.Fragment>
   );
