@@ -1,9 +1,0 @@
-/* Styling of elements inside the header */
-.header {
-  z-index: 1300;
-  background-color: rgb(40, 40, 40);
-}
-
-.heading {
-  font-family: "Akaya Telivigala";
-}
