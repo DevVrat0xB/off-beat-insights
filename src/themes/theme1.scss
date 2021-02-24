@@ -1,0 +1,17 @@
+// This file must be included in the styles.scss (default version),
+// below the mat-core() include statement.
+
+// CUSTOM THEME 1 (AKA CUSTOM)
+
+// Different colors required by the theme.
+$primary-color: mat-palette($mat-light-blue, 600, 300, 900);
+$accent-color: mat-palette($mat-green, A200, A100, A400);
+$warn-color: mat-palette($mat-yellow); // optional (default is red).
+
+// preparing the theme with above colors.
+$custom-theme: mat-light-theme($primary-color, $accent-color, $warn-color);
+
+// creating a class which will import or apply this theme.
+.customTheme {
+  @include angular-material-theme($custom-theme);
+}
